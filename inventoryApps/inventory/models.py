@@ -47,7 +47,22 @@ class Admins(models.Model):
         verbose_name = 'Admin'
         verbose_name_plural = 'Admins'
         ordering = ['name']
-        
+
+class Units(models.Model):
+    unit_id = models.AutoField(primary_key = True)
+    name = models.CharField(max_length = 255)
+    status = models.CharField(max_length = 1, default = '1')
+    created_at = models.DateTimeField('created_at', auto_now_add = True)
+    updated_at = models.DateTimeField('updated_at', auto_now = True)
+    
+    def __str__(self):
+        return self.units
+    
+    class Meta:
+        verbose_name = 'Unit'
+        verbose_name_plural = 'Units'
+        ordering = ['name']
+    
 class Applications(models.Model):
     app_id = models.AutoField(primary_key = True)
     name = models.CharField(max_length = 125)
@@ -62,7 +77,11 @@ class Applications(models.Model):
     status = models.CharField(max_length = 1, choices = status, default = '1')
     created_at = models.DateTimeField('created_at', auto_now_add = True)
     updated_at = models.DateTimeField('updated_at', auto_now = True)
-        
+    
+    developer = models.ForeignKey(Developers, on_delete = models.CASCADE)
+    admin = models.ForeignKey(Admins, on_delete = models.CASCADE)
+    unit = models.ForeignKey(Units, on_delete = models.CASCADE)
+    
     def __str__(self):
         return self.applications
     
