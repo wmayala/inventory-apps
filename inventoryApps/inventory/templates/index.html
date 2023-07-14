@@ -20,5 +20,18 @@
             <br><br>
             <a style="font-size: x-small;" href="{% url 'registration.logout' %}">Cerrar sesión</a>
         {% endif %}
+        
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        {% if messages %}
+            {% for message in messages %}
+                <script>
+                    Swal.fire({
+                        //'title': '¡ATENCIÓN!',
+                        'text': '{{ message }}',
+                        'icon': 'success',
+                    })
+                </script>
+            {% endfor %}
+        {% endif %}
     </body>
 </html>
