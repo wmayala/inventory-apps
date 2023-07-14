@@ -1,37 +1,35 @@
+{% extends 'layout/app.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>INDEX</title>
-        <link rel="shortcut icon" href="{% static 'icons/shortcut.png' %}">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" 
-            rel="stylesheet" 
-            integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" 
-            crossorigin="anonymous"
-        >
-    </head>
-    <body>
-        {% if user.is_authenticated %}
-            INDEX
-            <br><br>
-            {{ user.username }}
-            <br><br>
-            <a style="font-size: x-small;" href="{% url 'registration.logout' %}">Cerrar sesión</a>
-        {% endif %}
+{% block title %} Inicio {% endblock title %}
+{% block content %}
+    <div class="container bg-white border rounded-4 shadow-lg mx-auto mt-5 p-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="fs-4 fw-bold">CONTACTOS</div>
+            <a class="btn btn-primary px-5 py-2" href="#">
+                AGREGAR APLICACIÓN
+            </a>
+        </div>
         
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        {% if messages %}
-            {% for message in messages %}
-                <script>
-                    Swal.fire({
-                        //'title': '¡ATENCIÓN!',
-                        'text': '{{ message }}',
-                        'icon': 'success',
-                    })
-                </script>
-            {% endfor %}
-        {% endif %}
-    </body>
-</html>
+        <div class="overflow-auto">
+            <table class="table table-hover">
+                <thead class="bg-dark-subtle">
+                    <tr>
+                        <th scope="col" class="table-headers">ID</th>
+                        <th scope="col" class="table-headers">NOMBRE</th>
+                        <th scope="col" class="table-headers">DESCRIPCIÓN</th>
+                        <th scope="col" class="table-headers text-center">ESTADO</th>
+                        <th scope="col" class="table-headers text-center" >ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+{% endblock content %}
