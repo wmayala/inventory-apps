@@ -13,13 +13,36 @@
         >
     </head>
     <body>
-        {% comment %} {% if user.is_authenticated %}
-            INDEX
-            <br><br>
-            {{ user.username }}
-            <br><br>
-            <a style="font-size: x-small;" href="{% url 'registration.logout' %}">Cerrar sesión</a>
-        {% endif %} {% endcomment %}
+        <div class="row">
+            <div class="d-flex justify-content-around bg-dark">
+                <nav class="navbar navbar-expand-lg bg-dark">
+                    <div class="container-fluid bg-dark d-flex justify-content-between gap-5">
+                        <a class="navbar-brand text-bg-dark" href="#"><img src="{% static 'icons/bcr_blanco.png' %}" width="48" height="48"> <img src="{% static 'icons/apps.png' %}"></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                            data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" 
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav d-flex justify-content-between gap-5">
+                                <a class="nav-link text-white" href="{% url 'index' %}">Aplicaciones</a>
+                                <a class="nav-link text-white" href="#">Adminsitradores</a>
+                                <a class="nav-link text-white" href="#">Desarrolladores</a>
+                                <a class="nav-link text-white" href="#">Unidades</a>
+                            </div>
+                        </div>
+                    </div>
+                </nav> 
+                <div class="d-flex justify-content-center align-items-center gap-2">
+                    {% if user.is_authenticated %}
+                        <small class="text-white">{{ user.username }}</small>
+                        <a href="{% url 'registration.logout' %}"><small class="badge text-bg-danger">Cerrar sesión</small></a>
+                    {% endif %}
+                </div> 
+            </div>
+        </div>
+
+        
         
         {% block content %}{% endblock content %}
 
