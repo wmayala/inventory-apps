@@ -5,8 +5,18 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Inicio de sesión</title>
+        <link rel="shortcut icon" href="{% static 'icons/shortcut.png' %}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+            rel="stylesheet" 
+            integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" 
+            crossorigin="anonymous"
+        >
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" 
+            crossorigin="anonymous">
+        </script>
     </head>
-    <body>
+    <body style="background-color: #111E60;">
         <style>
             @import url('https://fonts.googleapis.com/css?family=Poppins');
 
@@ -305,9 +315,9 @@
                 </div>
                 <form method="post">
                     {% csrf_token %}
-                    <input type="text" id="username" class="fadeIn second" name="username" placeholder="Usuario" required>
-                    <input type="password" id="password" class="fadeIn third" name="password" placeholder="Clave" required>
-                    <input type="submit" class="fadeIn fourth" value="INICIAR">
+                    <input type="text" id="username" class="fadeIn second form-control" name="username" style="font-family: Arial, Helvetica, sans-serif;" placeholder="Nombre de usuario" autofocus required>
+                    <input type="password" id="password" class="fadeIn third form-control" name="password" style="font-family: Arial, Helvetica, sans-serif;" placeholder="Clave de ingreso" required>
+                    <input type="submit" class="fadeIn fourth" style="font-family: Arial, Helvetica, sans-serif;" value="INICIAR">
                 </form>
             </div>
         </div>
