@@ -12,8 +12,8 @@ type_dev = (
 )
 
 type_admin = (
-        ('1', 'Principal'),
-        ('2', 'Suplente'),
+    ('1', 'Principal'),
+    ('2', 'Suplente'),
 )
 
 class Developers(models.Model):
@@ -89,6 +89,3 @@ class Applications(models.Model):
         verbose_name = 'Application'
         verbose_name_plural = 'Applications'
         ordering = ['name']
-        
-
-        
